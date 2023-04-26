@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MobilProje</string>
+    <string name="todo">TODO</string>
+    <string name="login">LOGIN</string>
+    <string name="register">Register</string>
+    <string name="email">eMail</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

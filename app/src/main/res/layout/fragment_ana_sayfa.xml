@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AnaSayfaFragment">
+
+    <LinearLayout
+        android:id="@+id/sliderLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+
+        tools:ignore="UselessParent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardBackgroundColor="@color/secondary"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/menuLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/sliderLinearLayout"
+        android:background="@drawable/menu_background"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonIlanlar"
+                android:layout_width="50dp"
+                android:layout_height="180dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/card_background"
+                android:drawableTop="@drawable/ilan100"
+                android:fontFamily="serif-monospace"
+
+                android:text="İlanlar"
+                android:textColor="@color/gray"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonIlanver"
+                android:layout_width="50dp"
+                android:layout_height="180dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+
+                android:background="@drawable/card_background"
+                android:drawableTop="@drawable/ilanver100"
+                android:fontFamily="serif-monospace"
+
+                android:text="İlan Ver"
+                android:textColor="@color/gray"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonFavori"
+                android:layout_width="50dp"
+                android:layout_height="180dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/card_background"
+                android:drawableTop="@drawable/favori100"
+                android:fontFamily="serif-monospace"
+
+                android:text="Favori İlanlarım"
+                android:textColor="@color/gray"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                tools:ignore="MissingConstraints" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonIletisim"
+                android:layout_width="50dp"
+                android:layout_height="180dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/card_background"
+                android:drawableTop="@drawable/person"
+                android:fontFamily="serif-monospace"
+                android:text="İletişim Bilgilerim"
+                android:textColor="@color/gray"
+                android:textSize="8sp"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonMesajlar"
+                android:layout_width="50dp"
+                android:layout_height="180dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/card_background"
+                android:drawableTop="@drawable/message"
+                android:fontFamily="serif-monospace"
+
+                android:text="Mesajlarım"
+                android:textColor="@color/gray"
+                android:textSize="14sp"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonIlanlarim"
+                android:layout_width="50dp"
+                android:layout_height="180dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/card_background"
+                android:drawableTop="@drawable/ilanlarim"
+                android:fontFamily="serif-monospace"
+
+                android:text="İlanlarım"
+                android:textColor="@color/gray"
+                android:textSize="14sp"
+                tools:ignore="MissingConstraints" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/image" />
+
+    </LinearLayout>
+
+</RelativeLayout>
