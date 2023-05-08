@@ -1,5 +1,6 @@
 package com.kubrahuseyinzehra.mobilproje;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -26,6 +27,8 @@ import retrofit2.Response;
 public class LoginFragment extends Fragment {
 
     private AppCompatButton buttonLogin;
+
+    private AppCompatButton buttonRegister;
     private EditText editTextMailLogin;
     private EditText editTextPasswordLogin;
 
@@ -38,6 +41,7 @@ public class LoginFragment extends Fragment {
         buttonLogin = tasarim.findViewById(R.id.buttonLogin);
         editTextMailLogin=tasarim.findViewById(R.id.editTextMailLogin);
         editTextPasswordLogin=tasarim.findViewById(R.id.editTextPasswordLogin);
+        buttonRegister = tasarim.findViewById(R.id.buttonRegister);
         restApi = ApiUtils.getRestApiInterface();
          buttonLogin.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -48,7 +52,14 @@ public class LoginFragment extends Fragment {
                  login(ad,sifre,view);
 
              }
+
          });
+        buttonRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.KayitolGecis);
+            }
+        });
         return tasarim;
     }
     public void login (String ad, String sifre,View view){
