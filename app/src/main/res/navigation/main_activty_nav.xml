@@ -20,5 +20,13 @@
             app:destination="@id/anaSayfaFragment"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/KayitolGecis"
+            app:destination="@id/registerActivity" />
     </fragment>
+    <activity
+        android:id="@+id/registerActivity"
+        android:name="com.kubrahuseyinzehra.mobilproje.RegisterActivity"
+        android:label="activity_register"
+        tools:layout="@layout/activity_register" />
 </navigation>
