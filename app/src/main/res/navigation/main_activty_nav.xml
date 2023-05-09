@@ -21,12 +21,33 @@
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
         <action
-            android:id="@+id/KayitolGecis"
-            app:destination="@id/registerActivity" />
+            android:id="@+id/loginsignupgecis"
+            app:destination="@id/registerFragment" />
     </fragment>
-    <activity
-        android:id="@+id/registerActivity"
-        android:name="com.kubrahuseyinzehra.mobilproje.RegisterActivity"
-        android:label="activity_register"
-        tools:layout="@layout/activity_register" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.kubrahuseyinzehra.mobilproje.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/signupdogrulamagecis"
+            app:destination="@id/dogrulamaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dogrulamaFragment"
+        android:name="com.kubrahuseyinzehra.mobilproje.DogrulamaFragment"
+        android:label="fragment_dogrulama"
+        tools:layout="@layout/fragment_dogrulama" >
+        <action
+            android:id="@+id/dogrulamaanagecis"
+            app:destination="@id/anaSayfaFragment" />
+        <argument
+            android:name="kullanciadi"
+            app:argType="string"
+            android:defaultValue="isim yok" />
+        <argument
+            android:name="dogrulamakodu"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 </navigation>
