@@ -1,12 +1,16 @@
 package com.kubrahuseyinzehra.mobilproje;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -14,51 +18,52 @@ import android.widget.Toast;
 import com.kubrahuseyinzehra.mobilproje.Models.DogrulamaPojo;
 import com.kubrahuseyinzehra.mobilproje.RestApi.ApiUtils;
 import com.kubrahuseyinzehra.mobilproje.RestApi.RestApi;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
-public class DogrulamaActivity extends AppCompatActivity {
-
+public class DogrulamaFragment extends Fragment {
     private Button buttonR;
     private EditText mail;
     private EditText dogkod;
-    String dogrulamakodu;
+    int dogrulamakodu;
     String email;
 
     private RestApi restApi;
 
     SharedPreferences sharedPreferences;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dogrulama);
-        buttonR = findViewById(R.id.buttonDogrula);
-        mail = findViewById(R.id.editTextMailDogrulama);
-        dogkod = findViewById(R.id.editTextDogkod);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View tasarim= inflater.inflate(R.layout.fragment_dogrulama, container, false);
+        buttonR = tasarim.findViewById(R.id.buttonDogrula);
+        mail = tasarim.findViewById(R.id.editTextMailDogrulama);
+        dogkod = tasarim.findViewById(R.id.editTextDogkod);
         restApi = ApiUtils.getRestApiInterface();
+        // Inflate the layout for this fragment
 
-
-
-        Bundle bundle = getIntent().getExtras();
+        DogrulamaFragmentArgs bundle = DogrulamaFragmentArgs.fromBundle(getArguments());
+        dogrulamakodu = bundle.getDogrulamakodu();
+        email = bundle.getKullanciadi();
+      /*  Bundle bundle = getIntent().getExtras();
         dogrulamakodu =String.valueOf(bundle.getInt("kod"));
         email = bundle.getString("email");
         Toast.makeText(getApplicationContext(),dogrulamakodu,Toast.LENGTH_LONG).show();
-
+*/
         mail.setText(email);
 
         buttonR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                dogrula(email,dogrulamakodu);
+                dogrula(email,String.valueOf(dogrulamakodu),v);
             }
         });
+        return tasarim;
     }
-
-
-    public void dogrula (String ad, String kod){
+    public void dogrula (String ad, String kod,View view){
         restApi.dogrulama(ad, kod).enqueue(new Callback<DogrulamaPojo>() {
        @Override
        public void onResponse(Call<DogrulamaPojo> call, Response<DogrulamaPojo> response) {
@@ -66,18 +71,19 @@ public class DogrulamaActivity extends AppCompatActivity {
                String uye_id = response.body().getId().toString();
                String kullaniciadi = response.body().getKadi().toString();
                Log.e("deneme","shared öncesi");
-               sharedPreferences = getApplicationContext().getSharedPreferences("giris",0);
+               sharedPreferences = getContext().getSharedPreferences("giris",0);
                SharedPreferences.Editor editor = sharedPreferences.edit();
                editor.putString("uye_id",uye_id);
                editor.putString("uye_KullaniciAdi",kullaniciadi);
                editor.commit();
                Log.e("deneme","shared sonrası");
-               Intent intent = new Intent(DogrulamaActivity.this,AnaSayfaFragment.class);
-               startActivity(intent);
+             //  Intent intent = new Intent(DogrulamaActivity.this,AnaSayfaFragment.class);
+             //  startActivity(intent);
+               Navigation.findNavController(view).navigate(R.id.dogrulamaanagecis);
                Log.e("deneme","activity sonrası");
            }else
            {
-               Toast.makeText(getApplicationContext(),response.body().getResult(),Toast.LENGTH_LONG).show();
+               Toast.makeText(getContext(),response.body().getResult(),Toast.LENGTH_LONG).show();
            }
        }
 

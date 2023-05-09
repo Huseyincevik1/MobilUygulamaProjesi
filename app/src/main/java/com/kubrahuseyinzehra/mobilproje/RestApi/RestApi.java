@@ -18,7 +18,7 @@ public interface RestApi {
     @FormUrlEncoded
     @POST("register.php")
     Call<RegisterPojo> kayitol(@Field("kadi") String ad, @Field("sifre")String sifre);
-    //145 1.11 manageralla bişeyler yapıyor apiutilse yazdım.
+
 
     @FormUrlEncoded
     @POST("dogrulama.php")

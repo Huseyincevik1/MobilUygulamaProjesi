@@ -57,7 +57,7 @@ public class LoginFragment extends Fragment {
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.KayitolGecis);
+                Navigation.findNavController(view).navigate(R.id.loginsignupgecis);
             }
         });
         return tasarim;
