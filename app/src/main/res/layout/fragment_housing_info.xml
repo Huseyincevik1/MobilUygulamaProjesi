@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HousingInfoFragment"
+    tools:ignore="ExtraText">
+
+
+    <Spinner
+        android:id="@+id/spinnerilandurumu"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextbrütm2Info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/top_textilandurumuView"
+        app:layout_constraintTop_toBottomOf="@+id/top_texthousingView"
+        tools:ignore="MissingConstraints,VisualLintTextFieldSize" />
+
+    <TextView
+        android:id="@+id/textViewnetm4"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="153dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="33dp"
+        android:text="Kullanım durumu"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editTextkuldur"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewisitmatipi"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints,TextSizeCheck" />
+
+    <EditText
+        android:id="@+id/editTextkuldur"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="3dp"
+        android:background="@drawable/editext_background"
+        android:hint="Kullanım durumu"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toTopOf="@+id/buttonhouseinfogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewnetm4"
+        app:layout_constraintTop_toBottomOf="@+id/editTextkonsek"
+        tools:ignore="MissingConstraints,VisualLintTextFieldSize" />
+
+    <TextView
+        android:id="@+id/textViewnetm3"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:text="Konut şekli"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/top_textilandurumuView"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerilandurumu"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewnetm2"
+        tools:ignore="MissingConstraints,TextSizeCheck" />
+
+    <EditText
+        android:id="@+id/editTextkonsek"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="1dp"
+        android:background="@drawable/editext_background"
+        android:hint="Konut şekli"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toTopOf="@+id/editTextkuldur"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewnetm3"
+        app:layout_constraintTop_toBottomOf="@+id/editTextnetm2"
+        tools:ignore="MissingConstraints,VisualLintTextFieldSize" />
+
+    <EditText
+        android:id="@+id/editTextnetm2"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginEnd="1dp"
+        android:background="@drawable/editext_background"
+        android:hint="Net metrekare"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toTopOf="@+id/editTextkonsek"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints,VisualLintTextFieldSize" />
+
+    <EditText
+        android:id="@+id/editTextisitma"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:background="@drawable/editext_background"
+        android:hint="Isıtma tipi"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColorHint="#757575"
+        tools:ignore="MissingConstraints,VisualLintTextFieldSize"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="386dp" />
+
+    <TextView
+        android:id="@+id/textViewnetm2"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="200dp"
+        android:text="Net metrekare"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewnetm3"
+        app:layout_constraintEnd_toStartOf="@+id/editTextnetm2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewesya"
+        tools:ignore="MissingConstraints,TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/textViewesya"
+        android:layout_width="160dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="45dp"
+        android:text="Eşya Durumu"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewnetm3"
+        app:layout_constraintEnd_toStartOf="@+id/spinneresya"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewisitmatipi"
+        tools:ignore="MissingConstraints,TextSizeCheck" />
+
+    <EditText
+        android:id="@+id/editTextbinayasInfo"
+        android:layout_width="253dp"
+        android:layout_height="48dp"
+        android:background="@drawable/editext_background"
+        android:hint="Bina yaşı"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toTopOf="@+id/editTextbinakatsayiInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/top_textbinayasView"
+        app:layout_constraintTop_toBottomOf="@+id/editTextbrütm2Info"
+        tools:ignore="MissingConstraints,VisualLintTextFieldSize" />
+
+    <EditText
+        android:id="@+id/editTextbinakatsayiInfo"
+        android:layout_width="251dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/editext_background"
+        android:hint="Bina kat sayısı"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toBottomOf="@+id/top_textbinakatsayiView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/top_textbinakatsayiView"
+        app:layout_constraintTop_toTopOf="@+id/top_textbinakatsayiView"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="VisualLintTextFieldSize" />
+
+    <EditText
+        android:id="@+id/editTextbanyoInfo"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:background="@drawable/editext_background"
+        android:hint="Banyo sayısı"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColorHint="#757575"
+        tools:ignore="MissingConstraints,VisualLintTextFieldSize"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="338dp" />
+
+    <EditText
+        android:id="@+id/editTextbrütm2Info"
+        android:layout_width="248dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/editext_background"
+        android:hint="Brüt metrekare"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toTopOf="@+id/editTextbinayasInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/top_textm2brütView"
+        app:layout_constraintTop_toBottomOf="@+id/top_textilandurumuView"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="VisualLintTextFieldSize" />
+
+    <TextView
+        android:id="@+id/top_textbulundugukatView"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="1dp"
+        android:gravity="center"
+        android:text="Bulunduğu kat"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewbanyosayi"
+        app:layout_constraintEnd_toStartOf="@+id/editTextbanyoInfo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_textodasayiView"
+        tools:ignore="MissingConstraints,VisualLintTextFieldSize" />
+
+    <Spinner
+        android:id="@+id/spinneresya"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        tools:ignore="MissingConstraints,VisualLintTextFieldSize"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="434dp" />
+
+    <TextView
+        android:id="@+id/top_textbinayasView"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:text="Bina yaşı"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/top_textbinakatsayiView"
+        app:layout_constraintEnd_toStartOf="@+id/editTextbinayasInfo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextbrütm2Info"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints,TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/top_textilandurumuView"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="3dp"
+        android:gravity="center"
+        android:text="İlan durumu"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/top_textm2brütView"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerilandurumu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_texthousingView"
+        tools:ignore="MissingConstraints,TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/top_textbinakatsayiView"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="4dp"
+        android:gravity="center"
+        android:text="Bina kat sayısı"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/top_textodasayiView"
+        app:layout_constraintEnd_toStartOf="@+id/editTextbinakatsayiInfo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_textbinayasView"
+        tools:ignore="MissingConstraints,TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/top_textm2brütView"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:text="Brüt metrekare"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/top_textbinayasView"
+        app:layout_constraintEnd_toStartOf="@+id/editTextbrütm2Info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_textilandurumuView"
+        tools:ignore="MissingConstraints,TextSizeCheck" />
+
+    <EditText
+        android:id="@+id/editTextodasayiInfo"
+        android:layout_width="255dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/editext_background"
+        android:hint="Oda sayısı"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toTopOf="@+id/editTextbulundugukatInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/top_textodasayiView"
+        app:layout_constraintTop_toBottomOf="@+id/top_textbinakatsayiView"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="VisualLintTextFieldSize" />
+
+    <TextView
+        android:id="@+id/top_textodasayiView"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:text="Oda sayısı"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/top_textbulundugukatView"
+        app:layout_constraintEnd_toStartOf="@+id/editTextbinakatsayiInfo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_textbinakatsayiView"
+        tools:ignore="MissingConstraints,TextSizeCheck" />
+
+    <EditText
+        android:id="@+id/editTextbulundugukatInfo"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:background="@drawable/editext_background"
+        android:hint="Bulunduğu kat"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColorHint="#757575"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="290dp"
+        tools:ignore="MissingConstraints,TextSizeCheck"  />
+
+    <TextView
+        android:id="@+id/top_texthousingView"
+        android:layout_width="417dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="2dp"
+        android:gravity="center"
+        android:text="İlan Bilgilerini Giriniz"
+        android:textColor="@color/secondary"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerilandurumu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints,TextSizeCheck" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonhouseinfogo"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="610dp"
+        android:background="@drawable/button_background"
+        android:text="ileri"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/editTextkuldur"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints,TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/textViewbanyosayi"
+        android:layout_width="158dp"
+        android:layout_height="30dp"
+        android:text="Banyo sayısı"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewisitmatipi"
+        app:layout_constraintEnd_toStartOf="@+id/editTextbanyoInfo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_textbulundugukatView"
+        tools:ignore="MissingConstraints,TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/textViewisitmatipi"
+        android:layout_width="160dp"
+        android:layout_height="34dp"
+        android:text="Isıtma tipi"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewesya"
+        app:layout_constraintEnd_toStartOf="@+id/editTextisitma"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewbanyosayi"
+        tools:ignore="MissingConstraints,TextSizeCheck" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
