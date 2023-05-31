@@ -16,6 +16,7 @@ public class AnaSayfaFragment extends Fragment {
 
     private AppCompatButton buttonIlanver;
     private AppCompatButton buttonIlanlarim;
+    private AppCompatButton buttonIlanlar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -23,6 +24,7 @@ public class AnaSayfaFragment extends Fragment {
         View tasarim = inflater.inflate(R.layout.fragment_ana_sayfa, container, false);
         buttonIlanver=tasarim.findViewById(R.id.buttonIlanver);
         buttonIlanlarim = tasarim.findViewById(R.id.buttonIlanlarim);
+        buttonIlanlar = tasarim.findViewById(R.id.buttonIlanlar);
         Log.e("deneme","buuton onclick");
         buttonIlanver.setOnClickListener(new View.OnClickListener() {
 
@@ -39,6 +41,15 @@ public class AnaSayfaFragment extends Fragment {
             public void onClick(View view) {
                 Log.e("deneme","buuton  nav ön onclick");
                 Navigation.findNavController(view).navigate(R.id.mainden_ilanlarim);
+                Log.e("deneme","buuton nav son onclick");
+            }
+        });
+
+        buttonIlanlar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e("deneme","buuton  nav ön onclick");
+                Navigation.findNavController(view).navigate(R.id.mainden_tumilan);
                 Log.e("deneme","buuton nav son onclick");
             }
         });

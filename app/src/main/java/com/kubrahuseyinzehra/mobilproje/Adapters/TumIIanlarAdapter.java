@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,14 +18,14 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class IlanlarimAdapter extends RecyclerView.Adapter<IlanlarimAdapter.CardViewTasarimNesneTutucu> {
-    public IlanlarimAdapter(Context mContext, List<IlanlarItem> IlanlarimPojoList) {
-        this.mContext = mContext;
-        this.IlanlarimPojoList = IlanlarimPojoList;
-    }
-
+public class TumIIanlarAdapter extends  RecyclerView.Adapter<TumIIanlarAdapter.CardViewTasarimNesneTutucu> {
     private Context mContext;
-    private List<IlanlarItem> IlanlarimPojoList;
+    private List<IlanlarItem> tumIlanPojoList;
+
+    public TumIIanlarAdapter(Context mContext, List<IlanlarItem> tumIlanPojoList) {
+        this.mContext = mContext;
+        this.tumIlanPojoList = tumIlanPojoList;
+    }
 
     @NonNull
     @Override
@@ -37,10 +36,15 @@ public class IlanlarimAdapter extends RecyclerView.Adapter<IlanlarimAdapter.Card
 
     @Override
     public void onBindViewHolder(@NonNull CardViewTasarimNesneTutucu holder, int position) {
-        IlanlarItem tumIlanPojo = IlanlarimPojoList.get(position);
+        IlanlarItem tumIlanPojo = tumIlanPojoList.get(position);
         holder.textViewBaslik.setText(tumIlanPojo.getBaslik());
+
+        StringBuilder builder = new StringBuilder();
+        builder.append(tumIlanPojo.getIl()).append("//").append(tumIlanPojo.getIlce()).append(" ").append(tumIlanPojo.getMahalle());
+
+        holder.textViewAddress.setText(builder.toString());
         holder.textViewFiyat.setText(tumIlanPojo.getFiyat());
-        Picasso.get().load("https://kortizol.net/"+IlanlarimPojoList.get(position).getResim()).into(holder.imageView);
+        Picasso.get().load("https://kortizol.net/"+tumIlanPojoList.get(position).getResim()).into(holder.imageButton);
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,12 +55,11 @@ public class IlanlarimAdapter extends RecyclerView.Adapter<IlanlarimAdapter.Card
 
     @Override
     public int getItemCount() {
-        return IlanlarimPojoList.size();
+        return tumIlanPojoList.size();
     }
 
-
     public class CardViewTasarimNesneTutucu extends RecyclerView.ViewHolder {
-        public ImageView imageView;
+        public ImageView imageButton;
         public TextView textViewBaslik;
         public TextView textViewAddress;
         public TextView textViewFiyat;
@@ -65,14 +68,11 @@ public class IlanlarimAdapter extends RecyclerView.Adapter<IlanlarimAdapter.Card
 
         public CardViewTasarimNesneTutucu(View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.imageviewresim);
+            imageButton = itemView.findViewById(R.id.imageviewresim);
             textViewAddress = itemView.findViewById(R.id.textViewAdrdess);
             textViewFiyat = itemView.findViewById(R.id.textViewFiyat);
             textViewBaslik = itemView.findViewById(R.id.textViewBaslik);
             cardView = itemView.findViewById(R.id.cv);
-
         }
     }
-
-
 }

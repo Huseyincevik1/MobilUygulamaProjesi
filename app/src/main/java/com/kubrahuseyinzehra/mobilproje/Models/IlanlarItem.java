@@ -1,23 +1,15 @@
 package com.kubrahuseyinzehra.mobilproje.Models;
 
-public class IlanlarimPojoItem{
-	private String result;
+public class IlanlarItem{
 	private String resim;
-	private boolean tf;
 	private String aciklama;
-	private int uyeid;
-	private Object ilanid;
+	private String il;
+	private String ilce;
+	private String uyeid;
+	private String ilanid;
 	private String fiyat;
-	private int sayi;
+	private String mahalle;
 	private String baslik;
-
-	public void setResult(String result){
-		this.result = result;
-	}
-
-	public String getResult(){
-		return result;
-	}
 
 	public void setResim(String resim){
 		this.resim = resim;
@@ -25,14 +17,6 @@ public class IlanlarimPojoItem{
 
 	public String getResim(){
 		return resim;
-	}
-
-	public void setTf(boolean tf){
-		this.tf = tf;
-	}
-
-	public boolean isTf(){
-		return tf;
 	}
 
 	public void setAciklama(String aciklama){
@@ -43,19 +27,35 @@ public class IlanlarimPojoItem{
 		return aciklama;
 	}
 
-	public void setUyeid(int uyeid){
+	public void setIl(String il){
+		this.il = il;
+	}
+
+	public String getIl(){
+		return il;
+	}
+
+	public void setIlce(String ilce){
+		this.ilce = ilce;
+	}
+
+	public String getIlce(){
+		return ilce;
+	}
+
+	public void setUyeid(String uyeid){
 		this.uyeid = uyeid;
 	}
 
-	public int getUyeid(){
+	public String getUyeid(){
 		return uyeid;
 	}
 
-	public void setIlanid(Object ilanid){
+	public void setIlanid(String ilanid){
 		this.ilanid = ilanid;
 	}
 
-	public Object getIlanid(){
+	public String getIlanid(){
 		return ilanid;
 	}
 
@@ -67,12 +67,12 @@ public class IlanlarimPojoItem{
 		return fiyat;
 	}
 
-	public void setSayi(int sayi){
-		this.sayi = sayi;
+	public void setMahalle(String mahalle){
+		this.mahalle = mahalle;
 	}
 
-	public int getSayi(){
-		return sayi;
+	public String getMahalle(){
+		return mahalle;
 	}
 
 	public void setBaslik(String baslik){
@@ -86,15 +86,15 @@ public class IlanlarimPojoItem{
 	@Override
  	public String toString(){
 		return 
-			"IlanlarimPojoItem{" + 
-			"result = '" + result + '\'' + 
-			",resim = '" + resim + '\'' + 
-			",tf = '" + tf + '\'' + 
+			"IlanlarItem{" + 
+			"resim = '" + resim + '\'' + 
 			",aciklama = '" + aciklama + '\'' + 
+			",il = '" + il + '\'' + 
+			",ilce = '" + ilce + '\'' + 
 			",uyeid = '" + uyeid + '\'' + 
 			",ilanid = '" + ilanid + '\'' + 
 			",fiyat = '" + fiyat + '\'' + 
-			",sayi = '" + sayi + '\'' + 
+			",mahalle = '" + mahalle + '\'' + 
 			",baslik = '" + baslik + '\'' + 
 			"}";
 		}

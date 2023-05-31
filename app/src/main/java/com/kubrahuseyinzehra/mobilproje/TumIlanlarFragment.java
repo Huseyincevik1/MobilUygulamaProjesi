@@ -1,9 +1,7 @@
 package com.kubrahuseyinzehra.mobilproje;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,28 +23,26 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class IlanlarimFragment extends Fragment {
+public class TumIlanlarFragment extends Fragment {
     RecyclerView recyclerView;
     IlanlarimAdapter adapter;
     List<IlanlarItem> ilanlarimPojos;
-    String uyeid;
+
     private RestApi restApi;
-
-
-    @SuppressLint("MissingInflatedId")
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View tasarim= inflater.inflate(R.layout.fragment_ilanlarim, container, false);
-        recyclerView = tasarim.findViewById(R.id.rv);
+        View tasarim= inflater.inflate(R.layout.fragment_tum_ilanlar, container, false);
+        recyclerView = tasarim.findViewById(R.id.rvTum);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         recyclerView.setHasFixedSize(true);
         restApi = ApiUtils.getRestApiInterface();
-        ilanlarimgoruntule("2");
+        tunilanlargoruntule();
         return tasarim;
     }
 
-    public void ilanlarimgoruntule(String uyeid){
-        restApi.ilanlarim("2").enqueue(new Callback<IlanlarimPojo>() {
+    private void tunilanlargoruntule() {
+        restApi.tumilanlar().enqueue(new Callback<IlanlarimPojo>() {
             @Override
             public void onResponse(Call<IlanlarimPojo> call, Response<IlanlarimPojo> response) {
                 if(response.isSuccessful()){
@@ -63,7 +59,7 @@ public class IlanlarimFragment extends Fragment {
 
             @Override
             public void onFailure(Call<IlanlarimPojo> call, Throwable t) {
-                // Hata durumunda işlemler
+
             }
         });
     }

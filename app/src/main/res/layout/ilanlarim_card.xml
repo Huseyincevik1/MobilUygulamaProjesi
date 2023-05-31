@@ -19,33 +19,16 @@
             android:layout_height="match_parent"
             android:background="@drawable/card_background">
 
-            <ImageButton
-                android:id="@+id/imageButtonResim"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="246dp"
-                android:layout_marginBottom="25dp"
-                android:contentDescription="TODO"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck,SpeakableTextPresentCheck" />
-
             <TextView
                 android:id="@+id/textViewBaslik"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="25dp"
                 android:fontFamily="sans-serif-black"
                 android:text="BAŞLIK"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageButtonResim"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText" />
 
@@ -53,7 +36,6 @@
                 android:id="@+id/textViewAdrdess"
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="115dp"
@@ -62,7 +44,6 @@
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageButtonResim"
                 app:layout_constraintTop_toBottomOf="@+id/textViewBaslik"
                 tools:ignore="HardcodedText" />
 
@@ -70,7 +51,6 @@
                 android:id="@+id/textViewFiyat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="149dp"
                 android:layout_marginTop="63dp"
                 android:layout_marginEnd="40dp"
                 android:layout_marginBottom="30dp"
@@ -79,9 +59,22 @@
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageButtonResim"
                 app:layout_constraintTop_toBottomOf="@+id/textViewAdrdess"
                 tools:ignore="HardcodedText" />
+
+            <ImageView
+                android:id="@+id/imageviewresim"
+                android:layout_width="143dp"
+                android:layout_height="143dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="41dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textViewAdrdess"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

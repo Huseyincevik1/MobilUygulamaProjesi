@@ -16,6 +16,9 @@
         <action
             android:id="@+id/mainden_ilanlarim"
             app:destination="@id/ilanlarimFragment" />
+        <action
+            android:id="@+id/mainden_tumilan"
+            app:destination="@id/tumIlanlarFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -88,4 +91,9 @@
         android:name="com.kubrahuseyinzehra.mobilproje.IlanlarimFragment"
         android:label="fragment_ilanlarim"
         tools:layout="@layout/fragment_ilanlarim" />
+    <fragment
+        android:id="@+id/tumIlanlarFragment"
+        android:name="com.kubrahuseyinzehra.mobilproje.TumIlanlarFragment"
+        android:label="fragment_tum_ilanlar"
+        tools:layout="@layout/fragment_tum_ilanlar" />
 </navigation>

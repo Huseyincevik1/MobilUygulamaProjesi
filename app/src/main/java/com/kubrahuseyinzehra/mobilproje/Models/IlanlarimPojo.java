@@ -3,21 +3,21 @@ package com.kubrahuseyinzehra.mobilproje.Models;
 import java.util.List;
 
 public class IlanlarimPojo{
-	private List<IlanlarimPojoItem> ilanlarimPojo;
+	private List<IlanlarItem> ilanlar;
 
-	public void setIlanlarimPojo(List<IlanlarimPojoItem> ilanlarimPojo){
-		this.ilanlarimPojo = ilanlarimPojo;
+	public void setIlanlar(List<IlanlarItem> ilanlar){
+		this.ilanlar = ilanlar;
 	}
 
-	public List<IlanlarimPojoItem> getIlanlarimPojo(){
-		return ilanlarimPojo;
+	public List<IlanlarItem> getIlanlar(){
+		return ilanlar;
 	}
 
 	@Override
  	public String toString(){
 		return 
 			"IlanlarimPojo{" + 
-			"ilanlarimPojo = '" + ilanlarimPojo + '\'' + 
+			"ilanlar = '" + ilanlar + '\'' + 
 			"}";
 		}
 }
