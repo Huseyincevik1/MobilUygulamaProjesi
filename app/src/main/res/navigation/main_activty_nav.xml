@@ -13,6 +13,9 @@
         <action
             android:id="@+id/mainden_adrese"
             app:destination="@id/adresFragment" />
+        <action
+            android:id="@+id/mainden_ilanlarim"
+            app:destination="@id/ilanlarimFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -27,6 +30,9 @@
         <action
             android:id="@+id/loginsignupgecis"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_self"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -77,4 +83,9 @@
             android:id="@+id/hiden_extraya"
             app:destination="@id/extraHInfoFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/ilanlarimFragment"
+        android:name="com.kubrahuseyinzehra.mobilproje.IlanlarimFragment"
+        android:label="fragment_ilanlarim"
+        tools:layout="@layout/fragment_ilanlarim" />
 </navigation>

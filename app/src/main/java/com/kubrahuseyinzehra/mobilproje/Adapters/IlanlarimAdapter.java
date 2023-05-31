@@ -1,0 +1,75 @@
+package com.kubrahuseyinzehra.mobilproje.Adapters;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.kubrahuseyinzehra.mobilproje.Models.IlanlarimPojo;
+import com.kubrahuseyinzehra.mobilproje.Models.IlanlarimPojoItem;
+import com.kubrahuseyinzehra.mobilproje.R;
+
+import java.util.List;
+
+public class IlanlarimAdapter extends RecyclerView.Adapter<IlanlarimAdapter.CardViewTasarimNesneTutucu> {
+    public IlanlarimAdapter(Context mContext, List<IlanlarimPojoItem> IlanlarimPojoList) {
+        this.mContext = mContext;
+        this.IlanlarimPojoList = IlanlarimPojoList;
+    }
+
+    private Context mContext;
+    private List<IlanlarimPojoItem> IlanlarimPojoList;
+
+    @NonNull
+    @Override
+    public CardViewTasarimNesneTutucu onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.ilanlarim_card,parent,false);
+        return  new CardViewTasarimNesneTutucu(itemView);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull CardViewTasarimNesneTutucu holder, int position) {
+        IlanlarimPojoItem tumIlanPojo = IlanlarimPojoList.get(position);
+        holder.textViewBaslik.setText(tumIlanPojo.getBaslik());
+        holder.textViewFiyat.setText(tumIlanPojo.getFiyat());
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext,"ilanlarim",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return IlanlarimPojoList.size();
+    }
+
+
+    public class CardViewTasarimNesneTutucu extends RecyclerView.ViewHolder {
+        public ImageButton imageButton;
+        public TextView textViewBaslik;
+        public TextView textViewAddress;
+        public TextView textViewFiyat;
+        public CardView cardView;
+
+
+        public CardViewTasarimNesneTutucu(View itemView) {
+            super(itemView);
+            imageButton = itemView.findViewById(R.id.imageButtonResim);
+            textViewAddress = itemView.findViewById(R.id.textViewAdrdess);
+            textViewFiyat = itemView.findViewById(R.id.textViewFiyat);
+            textViewBaslik = itemView.findViewById(R.id.textViewBaslik);
+            cardView = itemView.findViewById(R.id.cv);
+        }
+    }
+
+
+}
