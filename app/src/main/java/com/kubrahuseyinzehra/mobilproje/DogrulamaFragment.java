@@ -27,7 +27,7 @@ public class DogrulamaFragment extends Fragment {
     private Button buttonR;
     private EditText mail;
     private EditText dogkod;
-    int dogrulamakodu;
+    String dogrulamakodu;
     String email;
 
     private RestApi restApi;
@@ -45,8 +45,9 @@ public class DogrulamaFragment extends Fragment {
         // Inflate the layout for this fragment
 
         DogrulamaFragmentArgs bundle = DogrulamaFragmentArgs.fromBundle(getArguments());
-        dogrulamakodu = bundle.getDogrulamakodu();
+        dogrulamakodu = String.valueOf(bundle.getDogrulamakodu());
         email = bundle.getKullanciadi();
+        Toast.makeText(requireContext(),dogrulamakodu,Toast.LENGTH_LONG).show();
       /*  Bundle bundle = getIntent().getExtras();
         dogrulamakodu =String.valueOf(bundle.getInt("kod"));
         email = bundle.getString("email");
@@ -71,7 +72,7 @@ public class DogrulamaFragment extends Fragment {
                String uye_id = response.body().getId().toString();
                String kullaniciadi = response.body().getKadi().toString();
                Log.e("deneme","shared öncesi");
-               sharedPreferences = getContext().getSharedPreferences("giris",0);
+               sharedPreferences =requireContext().getSharedPreferences("giris",0);
                SharedPreferences.Editor editor = sharedPreferences.edit();
                editor.putString("uye_id",uye_id);
                editor.putString("uye_KullaniciAdi",kullaniciadi);
@@ -83,7 +84,7 @@ public class DogrulamaFragment extends Fragment {
                Log.e("deneme","activity sonrası");
            }else
            {
-               Toast.makeText(getContext(),response.body().getResult(),Toast.LENGTH_LONG).show();
+               Toast.makeText(requireContext(),response.body().getResult(),Toast.LENGTH_LONG).show();
            }
        }
 

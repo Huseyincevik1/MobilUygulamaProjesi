@@ -9,7 +9,17 @@
         android:id="@+id/anaSayfaFragment"
         android:name="com.kubrahuseyinzehra.mobilproje.AnaSayfaFragment"
         android:label="fragment_ana_sayfa"
-        tools:layout="@layout/fragment_ana_sayfa" />
+        tools:layout="@layout/fragment_ana_sayfa" >
+        <action
+            android:id="@+id/mainden_adrese"
+            app:destination="@id/adresFragment" />
+        <action
+            android:id="@+id/mainden_ilanlarim"
+            app:destination="@id/ilanlarimFragment" />
+        <action
+            android:id="@+id/mainden_tumilan"
+            app:destination="@id/tumIlanlarFragment" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.kubrahuseyinzehra.mobilproje.LoginFragment"
@@ -23,6 +33,9 @@
         <action
             android:id="@+id/loginsignupgecis"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_self"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -50,4 +63,37 @@
             app:argType="integer"
             android:defaultValue="0" />
     </fragment>
+    <fragment
+        android:id="@+id/extraHInfoFragment"
+        android:name="com.kubrahuseyinzehra.mobilproje.ExtraHInfoFragment"
+        android:label="fragment_extra_h_info"
+        tools:layout="@layout/fragment_extra_h_info" />
+    <fragment
+        android:id="@+id/adresFragment"
+        android:name="com.kubrahuseyinzehra.mobilproje.AdresFragment"
+        android:label="fragment_adres"
+        tools:layout="@layout/fragment_adres" >
+        <action
+            android:id="@+id/adresten_hiye"
+            app:destination="@id/housingInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/housingInfoFragment"
+        android:name="com.kubrahuseyinzehra.mobilproje.HousingInfoFragment"
+        android:label="fragment_housing_info"
+        tools:layout="@layout/fragment_housing_info" >
+        <action
+            android:id="@+id/hiden_extraya"
+            app:destination="@id/extraHInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ilanlarimFragment"
+        android:name="com.kubrahuseyinzehra.mobilproje.IlanlarimFragment"
+        android:label="fragment_ilanlarim"
+        tools:layout="@layout/fragment_ilanlarim" />
+    <fragment
+        android:id="@+id/tumIlanlarFragment"
+        android:name="com.kubrahuseyinzehra.mobilproje.TumIlanlarFragment"
+        android:label="fragment_tum_ilanlar"
+        tools:layout="@layout/fragment_tum_ilanlar" />
 </navigation>

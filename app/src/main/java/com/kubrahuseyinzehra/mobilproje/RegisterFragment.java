@@ -68,7 +68,7 @@ public class RegisterFragment extends Fragment {
                         intent.putExtra("kod", response.body().getDogrulamakodu());
                         startActivity(intent);*/
                     } else {
-                        Toast.makeText(getContext(), response.body().getResult(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(requireContext(), response.body().getResult(), Toast.LENGTH_LONG).show();
                     }
                 }
 

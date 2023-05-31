@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ.EXTERNAL.STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE.EXTERNAL.STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -14,12 +16,6 @@
         android:theme="@style/Theme.MobilProje"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity
-            android:name=".RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DogrulamaActivity"
-            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
