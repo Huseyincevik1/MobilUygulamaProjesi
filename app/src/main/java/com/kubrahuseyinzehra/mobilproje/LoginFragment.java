@@ -1,6 +1,7 @@
 package com.kubrahuseyinzehra.mobilproje;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -31,7 +32,7 @@ public class LoginFragment extends Fragment {
     private AppCompatButton buttonRegister;
     private EditText editTextMailLogin;
     private EditText editTextPasswordLogin;
-
+    SharedPreferences sharedPreferences;
     private RestApi restApi;
 
     @Override
@@ -68,6 +69,12 @@ public class LoginFragment extends Fragment {
             public void onResponse(Call<LoginPojo> call, Response<LoginPojo> response) {
                 if(response.body() != null) {
                     if(response.body().getId() != null && response.body().getKadi() !=null) {
+                        sharedPreferences = getContext().getSharedPreferences("giris",0);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("uye_id",response.body().getId());
+                        editor.putString("kullaniciadi",response.body().getKadi());
+                        editor.commit();
+
                         Log.e("*******", "*******");
                         Log.e("kişi id", response.body().getId());
                         Log.e("kişi ad", response.body().getKadi());
@@ -83,4 +90,5 @@ public class LoginFragment extends Fragment {
             }
         });
     }
+
 }

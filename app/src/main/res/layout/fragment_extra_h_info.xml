@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ExtraHInfoFragment">
 
+
     <EditText
         android:id="@+id/editTextilanbaslikInfo2"
         android:layout_width="347dp"
@@ -38,7 +39,7 @@
         app:layout_constraintBottom_toTopOf="@+id/editTextilanbaslikInfo2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonaddpic"
+        app:layout_constraintTop_toBottomOf="@+id/resimeklebutton"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -58,13 +59,13 @@
         tools:ignore="MissingConstraints,TextSizeCheck" />
 
     <ImageView
-        android:id="@+id/ilanres"
+        android:id="@+id/secilenresimImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonpickpic"
+        android:id="@+id/resimsecbuuton"
         android:layout_width="237dp"
         android:layout_height="52dp"
         android:layout_gravity="center_horizontal"
@@ -82,18 +83,22 @@
         tools:ignore="MissingConstraints,TextSizeCheck" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonaddpic"
+        android:id="@+id/resimeklebutton"
         android:layout_width="237dp"
         android:layout_height="52dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="29dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="145dp"
+        android:layout_marginBottom="15dp"
         android:background="@drawable/button_background"
         android:text="Resmi ekle"
         android:textColor="@color/white"
         android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewilanbaslik"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonpickpic"
+        app:layout_constraintTop_toBottomOf="@+id/resimsecbuuton"
         tools:ignore="MissingConstraints,TextSizeCheck" />
 
     <TextView
@@ -113,8 +118,8 @@
 
     <EditText
         android:id="@+id/editTextbulundugukatInfo"
-        android:layout_width="360dp"
-        android:layout_height="200dp"
+        android:layout_width="362dp"
+        android:layout_height="147dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="35dp"
         android:background="@drawable/editext_background"
@@ -143,8 +148,10 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextbulundugukatInfo"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
