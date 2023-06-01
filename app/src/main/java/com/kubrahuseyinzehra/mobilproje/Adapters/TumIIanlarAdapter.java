@@ -46,7 +46,7 @@ public class TumIIanlarAdapter extends  RecyclerView.Adapter<TumIIanlarAdapter.C
         holder.textViewBaslik.setText(tumIlanPojo.getBaslik());
 
         StringBuilder builder = new StringBuilder();
-        builder.append(tumIlanPojo.getIl()).append("//").append(tumIlanPojo.getIlce()).append(" ").append(tumIlanPojo.getMahalle());
+        builder.append(tumIlanPojo.getIl()).append("//").append(tumIlanPojo.getIlce()).append(" ").append(tumIlanPojo.getMah());
 
         holder.textViewAddress.setText(builder.toString());
         holder.textViewFiyat.setText(tumIlanPojo.getFiyat());
