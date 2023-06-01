@@ -16,8 +16,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.kubrahuseyinzehra.mobilproje.Models.HousingPojo;
-import com.kubrahuseyinzehra.mobilproje.Models.LoginPojo;
-import com.kubrahuseyinzehra.mobilproje.RestApi.ApiUtils;
+import com.kubrahuseyinzehra.mobilproje.Models.IlanSonucPojo;
 import com.kubrahuseyinzehra.mobilproje.RestApi.RestApi;
 
 import retrofit2.Call;
@@ -28,7 +27,8 @@ import retrofit2.Response;
 public class HousingInfoFragment extends Fragment {
     Spinner durumspinner, spinneresya;
     private AppCompatButton btnhi;
-    private EditText brutm2, byas, bks, odas, bulunk,bans,isti,netm2,konsekli, kulldur;
+    private EditText brutm2, byas, bks, odas, bulunk,bans,isti,netm2,konsekli, kulldur,baslik,aciklama;
+    public static String ilan_id;
 
 
     private RestApi restApi;
@@ -37,12 +37,14 @@ public class HousingInfoFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View tasarim= inflater.inflate(R.layout.fragment_housing_info, container, false);
-       btnhi = tasarim.findViewById(R.id.buttonhouseinfogo);
+        baslik = tasarim.findViewById(R.id.baslikinfo);
+        aciklama = tasarim.findViewById(R.id.textViewilanaciklama);
+        btnhi = tasarim.findViewById(R.id.buttonhouseinfogo);
         brutm2=tasarim.findViewById(R.id.editTextbrütm2Info);
         byas=tasarim.findViewById(R.id.editTextbinayasInfo);
         bks =tasarim.findViewById(R.id.editTextbinakatsayiInfo);
         odas =tasarim.findViewById(R.id.editTextodasayiInfo);
-        bulunk =tasarim.findViewById(R.id.editTextbulundugukatInfo);
+        bulunk =tasarim.findViewById(R.id.top_textbulundugukatView);
         bans =tasarim.findViewById(R.id.editTextbanyoInfo);
         isti =tasarim.findViewById(R.id.editTextisitma);
         netm2 =tasarim.findViewById(R.id.editTextnetm2);
@@ -79,17 +81,35 @@ public class HousingInfoFragment extends Fragment {
                 HousingPojo.setNet_metrekare(netm2.getText().toString());
                 HousingPojo.setKonut_sekli(konsekli.getText().toString());
                 HousingPojo.setKullanim_durumu(kulldur.getText().toString());
-                HousingPojo.setKullanim_durumu(spinneresya.getSelectedItem().toString());
-                HousingPojo.setKullanim_durumu(durumspinner.getSelectedItem().toString());}
+              /*  HousingPojo.setKullanim_durumu(spinneresya.getSelectedItem().toString());
+                HousingPojo.setKullanim_durumu(durumspinner.getSelectedItem().toString());*/
+                ilanKaydet();
+                Navigation.findNavController(view).navigate(R.id.hiden_extraya);}
                 catch(Exception e) {Log.e("err","hata");
                 }
-                    Navigation.findNavController(view).navigate(R.id.hiden_extraya);
+                  Toast.makeText(requireContext(),"Kayıt başarısız",Toast.LENGTH_LONG).show();
                     //  Log.e("deneme","buuton nav son onclick");
 
             }
+
         });
         return  tasarim;
 
+    }
+    public void ilanKaydet(){
+        restApi.ilanver(HousingPojo.getBaslik(),HousingPojo.getUye_id(),HousingPojo.getAciklama(),HousingPojo.getIl(),HousingPojo.getIlce(),HousingPojo.getMahalle(),HousingPojo.getIlan_durumu(),HousingPojo.getBrut_metrekare(),HousingPojo.getNet_metrekare(),HousingPojo.getBina_yasi(),HousingPojo.getBina_kat_sayisi(),HousingPojo.getOda_sayisi(),HousingPojo.getBulundugu_kat(),HousingPojo.getBanyo_sayisi(),HousingPojo.getIsitma_tipi(),HousingPojo.getSon_gun_tarihi(),HousingPojo.getKonut_sekli(),"esyasız",HousingPojo.getKullanim_durumu(),"Ön").enqueue(new Callback<IlanSonucPojo>() {
+            @Override
+            public void onResponse(Call<IlanSonucPojo> call, Response<IlanSonucPojo> response) {
+                if(response.body().isTf()){
+                    ilan_id = response.body().getId();
 
+                }
+            }
+
+            @Override
+            public void onFailure(Call<IlanSonucPojo> call, Throwable t) {
+
+            }
+        });
     }
 }

@@ -26,6 +26,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.kubrahuseyinzehra.mobilproje.Models.HousingPojo;
+import com.kubrahuseyinzehra.mobilproje.Models.IlanSonucPojo;
 import com.kubrahuseyinzehra.mobilproje.Models.ResimEklePojo;
 import com.kubrahuseyinzehra.mobilproje.RestApi.ApiUtils;
 import com.kubrahuseyinzehra.mobilproje.RestApi.RestApi;
@@ -41,9 +43,10 @@ import retrofit2.Response;
 
 public class ExtraHInfoFragment extends Fragment {
 
-    AppCompatButton resimsecbutton, resimeklebutton;
+
+    AppCompatButton resimsecbutton, resimeklebutton, kaydetbutton;
     ImageView secilenresimImageView;
-    String uye_id, ilan_id, resim;
+    String uye_id, resim;
     private RestApi restApi;
     Bitmap bitmap;
     ProgressDialog progressDialog;
@@ -53,11 +56,27 @@ public class ExtraHInfoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View tasarim = inflater.inflate(R.layout.fragment_extra_h_info, container, false);
+        uye_id = HousingPojo.getUye_id();
         tanımla(tasarim);
         progressDialog = new ProgressDialog(requireContext());
         return tasarim;
     }
+   /* public void ilanKaydet(){
+        restApi.ilanver(HousingPojo.getBaslik(),HousingPojo.getUye_id(),HousingPojo.getAciklama(),HousingPojo.getIl(),HousingPojo.getIlce(),HousingPojo.getMahalle(),HousingPojo.getIlan_durumu(),HousingPojo.getBrut_metrekare(),HousingPojo.getNet_metrekare(),HousingPojo.getBina_yasi(),HousingPojo.getBina_kat_sayisi(),HousingPojo.getOda_sayisi(),HousingPojo.getBulundugu_kat(),HousingPojo.getBanyo_sayisi(),HousingPojo.getIsitma_tipi(),HousingPojo.getSon_gun_tarihi(),HousingPojo.getKonut_sekli(),"esyasız",HousingPojo.getKullanim_durumu(),"Ön").enqueue(new Callback<IlanSonucPojo>() {
+            @Override
+            public void onResponse(Call<IlanSonucPojo> call, Response<IlanSonucPojo> response) {
+              if(response.body().isTf()){
+                  ilan_id = response.body().getId();
 
+              }
+            }
+
+            @Override
+            public void onFailure(Call<IlanSonucPojo> call, Throwable t) {
+
+            }
+        });
+    }*/
     ActivityResultLauncher<String> resimcercevesisecme = registerForActivityResult(
             new ActivityResultContracts.GetContent(),
             new ActivityResultCallback<Uri>() {
@@ -77,10 +96,8 @@ public class ExtraHInfoFragment extends Fragment {
             );
 
     public void resimyukle(){
-        uye_id="2";
-        ilan_id="20";
         resim = imageToString();
-        restApi.resimyukle(uye_id,ilan_id,resim).enqueue(new Callback<ResimEklePojo>() {
+        restApi.resimyukle(uye_id,HousingInfoFragment.ilan_id,resim).enqueue(new Callback<ResimEklePojo>() {
             @Override
             public void onResponse(Call<ResimEklePojo> call, Response<ResimEklePojo> response) {
                 if (response.body() != null) {
@@ -104,6 +121,7 @@ public class ExtraHInfoFragment extends Fragment {
         resimeklebutton = tasarim.findViewById(R.id.resimeklebutton);
         resimsecbutton =tasarim.findViewById(R.id.resimsecbuuton);
         secilenresimImageView = tasarim.findViewById(R.id.secilenresimImageView);
+        kaydetbutton = tasarim.findViewById(R.id.buttonhouseinfo);
 
         restApi = ApiUtils.getRestApiInterface();
         resimsecbutton.setOnClickListener(new View.OnClickListener() {
@@ -121,9 +139,18 @@ public class ExtraHInfoFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Log.e("v","yükleme öncesi");
-               progressDialog.show();
-                resimyukle();
-                progressDialog.cancel();
+                if(HousingInfoFragment.ilan_id != null ){
+                    resimyukle();
+                }
+
+
+            }
+        });
+
+        kaydetbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }

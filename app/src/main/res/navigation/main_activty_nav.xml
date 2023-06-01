@@ -19,6 +19,8 @@
         <action
             android:id="@+id/mainden_tumilan"
             app:destination="@id/tumIlanlarFragment" />
+        <argument android:name="uye_id"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -85,6 +87,9 @@
         <action
             android:id="@+id/hiden_extraya"
             app:destination="@id/extraHInfoFragment" />
+        <argument
+            android:name="housinginfonesne"
+            app:argType="com.kubrahuseyinzehra.mobilproje.Models.HousingPojo" />
     </fragment>
     <fragment
         android:id="@+id/ilanlarimFragment"

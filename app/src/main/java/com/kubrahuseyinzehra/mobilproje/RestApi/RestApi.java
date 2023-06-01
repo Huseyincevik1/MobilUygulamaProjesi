@@ -31,7 +31,7 @@ public interface RestApi {
 
     @POST("ilanlar.php")
     @FormUrlEncoded
-    Call<IlanSonucPojo> control2(@Field("baslik") String baslik, @Field("uye_id") String uye_id, @Field("aciklama") String aciklama, @Field("il") String il, @Field("ilce") String ilce, @Field("mahalle") String mahalle, @Field("ilan_durumu") String ilan_durumu, @Field("brut_metrekare") String brut_metrekare, @Field("net_metrekare") String net_metrekare, @Field("bina_yasi") String bina_yasi, @Field("bina_kat_sayisi") String bina_kat_sayisi , @Field("oda_sayisi") String oda_sayisi, @Field("bulundugu_kat") String bulundugu_kat, @Field("banyo_sayisi") String banyo_sayisi , @Field("isitma_tipi") String isitma_tipi , @Field("son_gun_tarihi") String  son_gun_tarihi, @Field("konut_sekli") String konut_sekli , @Field("esya_durumu ") String esya_durumu  , @Field(" kullanım_durumu") String  kullanım_durumu , @Field("cephe") String cephe  ) ;
+    Call<IlanSonucPojo> ilanver(@Field("baslik") String baslik, @Field("uye_id") String uye_id, @Field("aciklama") String aciklama, @Field("il") String il, @Field("ilce") String ilce, @Field("mahalle") String mahalle, @Field("ilan_durumu") String ilan_durumu, @Field("brut_metrekare") String brut_metrekare, @Field("net_metrekare") String net_metrekare, @Field("bina_yasi") String bina_yasi, @Field("bina_kat_sayisi") String bina_kat_sayisi , @Field("oda_sayisi") String oda_sayisi, @Field("bulundugu_kat") String bulundugu_kat, @Field("banyo_sayisi") String banyo_sayisi , @Field("isitma_tipi") String isitma_tipi , @Field("son_gun_tarihi") String  son_gun_tarihi, @Field("konut_sekli") String konut_sekli , @Field("esya_durumu ") String esya_durumu  , @Field(" kullanım_durumu") String  kullanım_durumu , @Field("cephe") String cephe  ) ;
 
 
 

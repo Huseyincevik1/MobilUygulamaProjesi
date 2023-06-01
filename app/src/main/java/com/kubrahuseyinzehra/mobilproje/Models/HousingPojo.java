@@ -3,7 +3,9 @@ package com.kubrahuseyinzehra.mobilproje.Models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class HousingPojo
+import java.io.Serializable;
+
+public class HousingPojo implements Serializable
 {
 
     static String baslik ;
