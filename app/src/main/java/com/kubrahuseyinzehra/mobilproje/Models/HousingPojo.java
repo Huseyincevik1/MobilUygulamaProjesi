@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class HousingPojo implements Serializable
+public class HousingPojo
 {
 
     static String baslik ;

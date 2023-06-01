@@ -319,9 +319,6 @@
                             android:id="@+id/textViewilanaciklama"
                             android:layout_width="wrap_content"
                             android:layout_height="40dp"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="13dp"
-                            android:layout_marginEnd="145dp"
                             android:text="İlan açıklama metnini giriniz"
                             android:textColor="@color/black"
                             android:textSize="20dp"
@@ -329,7 +326,7 @@
                             tools:ignore="MissingConstraints" />
 
                         <EditText
-                            android:id="@+id/editTextbulundugukatInfo"
+                            android:id="@+id/aciklamaaa"
                             android:layout_width="wrap_content"
                             android:layout_height="100dp"
                             android:layout_marginStart="16dp"

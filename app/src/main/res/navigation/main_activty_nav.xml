@@ -87,9 +87,6 @@
         <action
             android:id="@+id/hiden_extraya"
             app:destination="@id/extraHInfoFragment" />
-        <argument
-            android:name="housinginfonesne"
-            app:argType="com.kubrahuseyinzehra.mobilproje.Models.HousingPojo" />
     </fragment>
     <fragment
         android:id="@+id/ilanlarimFragment"

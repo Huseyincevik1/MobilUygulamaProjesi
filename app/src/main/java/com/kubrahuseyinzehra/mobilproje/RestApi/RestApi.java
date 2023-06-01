@@ -1,6 +1,7 @@
 package com.kubrahuseyinzehra.mobilproje.RestApi;
 
 import com.kubrahuseyinzehra.mobilproje.Models.DogrulamaPojo;
+import com.kubrahuseyinzehra.mobilproje.Models.IlanDetay;
 import com.kubrahuseyinzehra.mobilproje.Models.IlanSonucPojo;
 import com.kubrahuseyinzehra.mobilproje.Models.IlanlarimPojo;
 import com.kubrahuseyinzehra.mobilproje.Models.LoginPojo;
@@ -41,7 +42,8 @@ public interface RestApi {
     @GET("tumilanlar.php")
     Call<IlanlarimPojo>tumilanlar();
 
-
+    @GET("ilandetay.php")
+    Call<IlanDetay>ilandetay(@Query("ilan_id") String ilan_id);
 
     @POST("ilanresimler.php")
     @FormUrlEncoded

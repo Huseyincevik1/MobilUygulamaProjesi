@@ -1,5 +1,6 @@
 package com.kubrahuseyinzehra.mobilproje;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -33,12 +34,13 @@ public class HousingInfoFragment extends Fragment {
 
     private RestApi restApi;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View tasarim= inflater.inflate(R.layout.fragment_housing_info, container, false);
         baslik = tasarim.findViewById(R.id.baslikinfo);
-        aciklama = tasarim.findViewById(R.id.textViewilanaciklama);
+        aciklama = tasarim.findViewById(R.id.aciklamaaa);
         btnhi = tasarim.findViewById(R.id.buttonhouseinfogo);
         brutm2=tasarim.findViewById(R.id.editTextbrütm2Info);
         byas=tasarim.findViewById(R.id.editTextbinayasInfo);
@@ -83,7 +85,11 @@ public class HousingInfoFragment extends Fragment {
                 HousingPojo.setKullanim_durumu(kulldur.getText().toString());
               /*  HousingPojo.setKullanim_durumu(spinneresya.getSelectedItem().toString());
                 HousingPojo.setKullanim_durumu(durumspinner.getSelectedItem().toString());*/
+                HousingPojo.setAciklama("a");
+                HousingPojo.setBaslik(baslik.getText().toString());
+                Log.e("a",HousingPojo.getAciklama());
                 ilanKaydet();
+                Log.e("a",HousingPojo.getAciklama());
                 Navigation.findNavController(view).navigate(R.id.hiden_extraya);}
                 catch(Exception e) {Log.e("err","hata");
                 }
@@ -102,7 +108,7 @@ public class HousingInfoFragment extends Fragment {
             public void onResponse(Call<IlanSonucPojo> call, Response<IlanSonucPojo> response) {
                 if(response.body().isTf()){
                     ilan_id = response.body().getId();
-
+                    Log.e("a",ilan_id);
                 }
             }
 
