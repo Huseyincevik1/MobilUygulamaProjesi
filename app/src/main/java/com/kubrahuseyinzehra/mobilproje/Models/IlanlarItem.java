@@ -1,6 +1,8 @@
 package com.kubrahuseyinzehra.mobilproje.Models;
 
-public class IlanlarItem{
+import java.io.Serializable;
+
+public class IlanlarItem implements Serializable {
 	private String resim;
 	private String aciklama;
 	private String il;

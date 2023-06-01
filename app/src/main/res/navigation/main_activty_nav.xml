@@ -109,5 +109,9 @@
         android:id="@+id/ilanDetayFragment"
         android:name="com.kubrahuseyinzehra.mobilproje.IlanDetayFragment"
         android:label="fragment_ilan_detay"
-        tools:layout="@layout/fragment_ilan_detay" />
+        tools:layout="@layout/fragment_ilan_detay" >
+        <argument
+            android:name="Ilanlaritem"
+            app:argType="com.kubrahuseyinzehra.mobilproje.Models.IlanlarItem" />
+    </fragment>
 </navigation>

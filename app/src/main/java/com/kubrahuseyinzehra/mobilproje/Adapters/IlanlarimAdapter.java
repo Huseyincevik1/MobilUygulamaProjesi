@@ -11,10 +11,12 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.kubrahuseyinzehra.mobilproje.Models.IlanlarItem;
 import com.kubrahuseyinzehra.mobilproje.R;
+import com.kubrahuseyinzehra.mobilproje.TumIlanlarFragmentDirections;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -44,6 +46,7 @@ public class IlanlarimAdapter extends RecyclerView.Adapter<IlanlarimAdapter.Card
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Toast.makeText(mContext,"ilanlarim",Toast.LENGTH_SHORT).show();
             }
         });
