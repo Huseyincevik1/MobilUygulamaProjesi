@@ -12,8 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-public class AnaSayfaFragment extends Fragment {
+import com.kubrahuseyinzehra.mobilproje.Models.HousingPojo;
 
+public class AnaSayfaFragment extends Fragment {
+    public static String uyeid;
     private AppCompatButton buttonIlanver;
     private AppCompatButton buttonIlanlarim;
     private AppCompatButton buttonIlanlar;
@@ -26,6 +28,8 @@ public class AnaSayfaFragment extends Fragment {
         buttonIlanlarim = tasarim.findViewById(R.id.buttonIlanlarim);
         buttonIlanlar = tasarim.findViewById(R.id.buttonIlanlar);
         Log.e("deneme","buuton onclick");
+        AnaSayfaFragmentArgs bundle = AnaSayfaFragmentArgs.fromBundle(getArguments());
+        HousingPojo.setUye_id(bundle.getUyeId());
         buttonIlanver.setOnClickListener(new View.OnClickListener() {
 
             @Override

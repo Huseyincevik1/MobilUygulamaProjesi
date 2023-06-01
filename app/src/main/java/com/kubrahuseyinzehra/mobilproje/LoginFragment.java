@@ -16,7 +16,9 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.kubrahuseyinzehra.mobilproje.LoginFragmentDirections;
 import com.kubrahuseyinzehra.mobilproje.Models.LoginPojo;
+import com.kubrahuseyinzehra.mobilproje.RegisterFragmentDirections;
 import com.kubrahuseyinzehra.mobilproje.RestApi.ApiUtils;
 import com.kubrahuseyinzehra.mobilproje.RestApi.RestApi;
 
@@ -79,7 +81,8 @@ public class LoginFragment extends Fragment {
                         Log.e("kişi id", response.body().getId());
                         Log.e("kişi ad", response.body().getKadi());
                         Log.e("*******", "*******");
-                        Navigation.findNavController(view).navigate(R.id.logindenAnasyfayaGecis);
+                        LoginFragmentDirections.LogindenAnasyfayaGecis gecis = LoginFragmentDirections.logindenAnasyfayaGecis(response.body().getId());
+                        Navigation.findNavController(view).navigate(gecis);
                     }
                 }
             }

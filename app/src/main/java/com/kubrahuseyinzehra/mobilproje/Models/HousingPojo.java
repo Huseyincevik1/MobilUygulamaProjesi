@@ -3,9 +3,10 @@ package com.kubrahuseyinzehra.mobilproje.Models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 public class HousingPojo
 {
-
     static String baslik ;
     static String  uye_id ;
 //resim = $_POST['id'];

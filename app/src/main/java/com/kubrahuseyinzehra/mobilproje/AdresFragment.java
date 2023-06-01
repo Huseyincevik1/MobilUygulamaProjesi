@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.kubrahuseyinzehra.mobilproje.AdresFragmentDirections;
 import com.kubrahuseyinzehra.mobilproje.Models.HousingPojo;
 
 public class AdresFragment extends Fragment {
@@ -39,6 +40,7 @@ public class AdresFragment extends Fragment {
                 HousingPojo.setIl(il.getText().toString());
                 HousingPojo.setIlce(ilce.getText().toString());
                 HousingPojo.setMahalle(mah.getText().toString());
+               // AdresFragmentDirections.AdrestenHiye gecis = AdresFragmentDirections.adrestenHiye();
                 Navigation.findNavController(view).navigate(R.id.adresten_hiye);
               //  Log.e("deneme","buuton nav son onclick");
             }
