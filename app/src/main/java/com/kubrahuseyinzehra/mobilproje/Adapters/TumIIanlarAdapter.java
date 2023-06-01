@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.kubrahuseyinzehra.mobilproje.Models.IlanlarItem;
@@ -22,10 +23,15 @@ public class TumIIanlarAdapter extends  RecyclerView.Adapter<TumIIanlarAdapter.C
     private Context mContext;
     private List<IlanlarItem> tumIlanPojoList;
 
-    public TumIIanlarAdapter(Context mContext, List<IlanlarItem> tumIlanPojoList) {
+
+
+    public TumIIanlarAdapter(Context mContext, List<IlanlarItem> tumIlanPojoList ) {
         this.mContext = mContext;
         this.tumIlanPojoList = tumIlanPojoList;
+
     }
+
+
 
     @NonNull
     @Override
@@ -48,9 +54,12 @@ public class TumIIanlarAdapter extends  RecyclerView.Adapter<TumIIanlarAdapter.C
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext,"ilanlarim",Toast.LENGTH_SHORT).show();
+                Navigation.findNavController(v).navigate(R.id.tumilan_ilandetay);
+                Toast.makeText(mContext,tumIlanPojo.getBaslik(),Toast.LENGTH_SHORT).show();
+
             }
         });
+
     }
 
     @Override
@@ -66,13 +75,15 @@ public class TumIIanlarAdapter extends  RecyclerView.Adapter<TumIIanlarAdapter.C
         public CardView cardView;
 
 
-        public CardViewTasarimNesneTutucu(View itemView) {
+        public CardViewTasarimNesneTutucu(View itemView ) {
             super(itemView);
             imageButton = itemView.findViewById(R.id.imageviewresim);
             textViewAddress = itemView.findViewById(R.id.textViewAdrdess);
             textViewFiyat = itemView.findViewById(R.id.textViewFiyat);
             textViewBaslik = itemView.findViewById(R.id.textViewBaslik);
             cardView = itemView.findViewById(R.id.cv);
+
         }
+
     }
 }

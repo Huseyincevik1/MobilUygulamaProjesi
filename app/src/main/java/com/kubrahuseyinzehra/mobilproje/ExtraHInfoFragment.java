@@ -1,6 +1,7 @@
 package com.kubrahuseyinzehra.mobilproje;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -45,6 +46,7 @@ public class ExtraHInfoFragment extends Fragment {
     String uye_id, ilan_id, resim;
     private RestApi restApi;
     Bitmap bitmap;
+    ProgressDialog progressDialog;
 
 
     @Override
@@ -52,7 +54,7 @@ public class ExtraHInfoFragment extends Fragment {
                              Bundle savedInstanceState) {
         View tasarim = inflater.inflate(R.layout.fragment_extra_h_info, container, false);
         tanımla(tasarim);
-
+        progressDialog = new ProgressDialog(requireContext());
         return tasarim;
     }
 
@@ -119,9 +121,9 @@ public class ExtraHInfoFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Log.e("v","yükleme öncesi");
-
+               progressDialog.show();
                 resimyukle();
-
+                progressDialog.cancel();
             }
         });
     }

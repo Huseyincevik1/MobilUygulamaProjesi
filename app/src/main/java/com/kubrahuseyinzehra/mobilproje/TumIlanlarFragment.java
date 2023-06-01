@@ -2,16 +2,21 @@ package com.kubrahuseyinzehra.mobilproje;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-import com.kubrahuseyinzehra.mobilproje.Adapters.IlanlarimAdapter;
+
+import com.kubrahuseyinzehra.mobilproje.Adapters.TumIIanlarAdapter;
 import com.kubrahuseyinzehra.mobilproje.Models.IlanlarItem;
 import com.kubrahuseyinzehra.mobilproje.Models.IlanlarimPojo;
 import com.kubrahuseyinzehra.mobilproje.RestApi.ApiUtils;
@@ -23,9 +28,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TumIlanlarFragment extends Fragment {
+public class TumIlanlarFragment extends Fragment  {
     RecyclerView recyclerView;
-    IlanlarimAdapter adapter;
+    TumIIanlarAdapter adapter;
     List<IlanlarItem> ilanlarimPojos;
 
     private RestApi restApi;
@@ -36,6 +41,7 @@ public class TumIlanlarFragment extends Fragment {
         recyclerView = tasarim.findViewById(R.id.rvTum);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         recyclerView.setHasFixedSize(true);
+
         restApi = ApiUtils.getRestApiInterface();
         tunilanlargoruntule();
         return tasarim;
@@ -45,15 +51,17 @@ public class TumIlanlarFragment extends Fragment {
         restApi.tumilanlar().enqueue(new Callback<IlanlarimPojo>() {
             @Override
             public void onResponse(Call<IlanlarimPojo> call, Response<IlanlarimPojo> response) {
-                if(response.isSuccessful()){
-                    Log.e("ilanlarim","görüntüle");
-                    ilanlarimPojos = response.body().getIlanlar();
-                    Log.e("ilamlarim",ilanlarimPojos.toString());
-                    adapter = new IlanlarimAdapter(requireContext(),ilanlarimPojos); //getAplicationcontext
-                    Log.e("ilanlarim","görüntüle2");
-                    recyclerView.setAdapter(adapter);
-                    Log.e("ilanlarim","görüntüle3");
-                }
+            if(response.isSuccessful()){
+                Log.e("ilanlarim","görüntüle");
+                ilanlarimPojos = response.body().getIlanlar();
+                Log.e("ilamlarim",ilanlarimPojos.toString());
+                adapter = new TumIIanlarAdapter(requireContext(),ilanlarimPojos);//getAplicationcontext
+                Log.e("ilanlarim","görüntüle2");
+                recyclerView.setAdapter(adapter);
+
+
+                Log.e("ilanlarim","görüntüle3");
+            }
 
             }
 
@@ -63,4 +71,6 @@ public class TumIlanlarFragment extends Fragment {
             }
         });
     }
+
+
 }

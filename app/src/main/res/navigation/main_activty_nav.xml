@@ -95,5 +95,14 @@
         android:id="@+id/tumIlanlarFragment"
         android:name="com.kubrahuseyinzehra.mobilproje.TumIlanlarFragment"
         android:label="fragment_tum_ilanlar"
-        tools:layout="@layout/fragment_tum_ilanlar" />
+        tools:layout="@layout/fragment_tum_ilanlar" >
+        <action
+            android:id="@+id/tumilan_ilandetay"
+            app:destination="@id/ilanDetayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ilanDetayFragment"
+        android:name="com.kubrahuseyinzehra.mobilproje.IlanDetayFragment"
+        android:label="fragment_ilan_detay"
+        tools:layout="@layout/fragment_ilan_detay" />
 </navigation>
