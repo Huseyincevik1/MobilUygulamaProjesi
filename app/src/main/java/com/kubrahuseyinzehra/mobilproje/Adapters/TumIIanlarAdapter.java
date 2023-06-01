@@ -1,6 +1,7 @@
 package com.kubrahuseyinzehra.mobilproje.Adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.kubrahuseyinzehra.mobilproje.Models.IlanlarItem;
 import com.kubrahuseyinzehra.mobilproje.R;
+import com.kubrahuseyinzehra.mobilproje.TumIlanlarFragmentDirections;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -46,15 +48,20 @@ public class TumIIanlarAdapter extends  RecyclerView.Adapter<TumIIanlarAdapter.C
         holder.textViewBaslik.setText(tumIlanPojo.getBaslik());
 
         StringBuilder builder = new StringBuilder();
-        builder.append(tumIlanPojo.getIl()).append("//").append(tumIlanPojo.getIlce()).append(" ").append(tumIlanPojo.getMah());
+        builder.append(tumIlanPojo.getIl()).append("/").append(tumIlanPojo.getIlce()).append(" ").append(tumIlanPojo.getMahalle());
 
         holder.textViewAddress.setText(builder.toString());
         holder.textViewFiyat.setText(tumIlanPojo.getFiyat());
         Picasso.get().load("https://kortizol.net/"+tumIlanPojoList.get(position).getResim()).into(holder.imageButton);
+
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.tumilan_ilandetay);
+
+
+                TumIlanlarFragmentDirections.TumilanIlandetay gecis = TumIlanlarFragmentDirections.tumilanIlandetay(tumIlanPojo);
+                Navigation.findNavController(v).navigate(gecis);
+
                 Toast.makeText(mContext,tumIlanPojo.getBaslik(),Toast.LENGTH_SHORT).show();
 
             }

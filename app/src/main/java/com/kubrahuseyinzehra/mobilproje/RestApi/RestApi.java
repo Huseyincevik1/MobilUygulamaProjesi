@@ -2,6 +2,7 @@ package com.kubrahuseyinzehra.mobilproje.RestApi;
 
 import com.kubrahuseyinzehra.mobilproje.Models.DogrulamaPojo;
 import com.kubrahuseyinzehra.mobilproje.Models.FavKontrol;
+import com.kubrahuseyinzehra.mobilproje.Models.IlanDetay;
 import com.kubrahuseyinzehra.mobilproje.Models.IlanSonucPojo;
 import com.kubrahuseyinzehra.mobilproje.Models.IlanlarItem;
 import com.kubrahuseyinzehra.mobilproje.Models.IlanlarimPojo;
@@ -51,5 +52,5 @@ public interface RestApi {
     Call<ResimEklePojo> resimyukle(@Field("uye_id") String uye_id, @Field("ilan_id") String ilan_id, @Field("resim") String base64StringResim);
 
     @GET("ilandetay.php")
-    Call<IlanlarItem>ilandetay(@Query("ilan_id") String ilan_id);
+    Call<IlanDetay>ilandetay(@Query("ilan_id") String ilan_id);
 }

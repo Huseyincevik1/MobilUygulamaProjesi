@@ -46,8 +46,7 @@ public class IlanlarimAdapter extends RecyclerView.Adapter<IlanlarimAdapter.Card
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TumIlanlarFragmentDirections.TumilanIlandetay gecis = TumIlanlarFragmentDirections.tumilanIlandetay(tumIlanPojo);
-                Navigation.findNavController(v).navigate(gecis);
+
                 Toast.makeText(mContext,"ilanlarim",Toast.LENGTH_SHORT).show();
             }
         });
