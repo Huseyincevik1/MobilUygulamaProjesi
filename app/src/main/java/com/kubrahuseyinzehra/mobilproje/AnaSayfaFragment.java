@@ -15,7 +15,7 @@ import android.widget.Button;
 import com.kubrahuseyinzehra.mobilproje.Models.HousingPojo;
 
 public class AnaSayfaFragment extends Fragment {
-    public  String uyeid;
+    public static String uyeid;
     private AppCompatButton buttonIlanver;
     private AppCompatButton buttonIlanlarim;
     private AppCompatButton buttonIlanlar;

@@ -7,7 +7,6 @@ import java.io.Serializable;
 
 public class HousingPojo
 {
-
     static String baslik ;
     static String  uye_id ;
 //resim = $_POST['id'];

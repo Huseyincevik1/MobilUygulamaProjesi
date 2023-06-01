@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.kubrahuseyinzehra.mobilproje.DogrulamaFragmentDirections;
 import com.kubrahuseyinzehra.mobilproje.Models.DogrulamaPojo;
 import com.kubrahuseyinzehra.mobilproje.RestApi.ApiUtils;
 import com.kubrahuseyinzehra.mobilproje.RestApi.RestApi;
@@ -60,6 +61,7 @@ public class DogrulamaFragment extends Fragment {
             public void onClick(View v) {
 
                 dogrula(email,String.valueOf(dogrulamakodu),v);
+
             }
         });
         return tasarim;
@@ -80,7 +82,8 @@ public class DogrulamaFragment extends Fragment {
                Log.e("deneme","shared sonrası");
              //  Intent intent = new Intent(DogrulamaActivity.this,AnaSayfaFragment.class);
              //  startActivity(intent);
-               Navigation.findNavController(view).navigate(R.id.dogrulamaanagecis);
+               DogrulamaFragmentDirections.Dogrulamaanagecis gecis = DogrulamaFragmentDirections.dogrulamaanagecis(response.body().getId().toString());
+               Navigation.findNavController(view).navigate(gecis);//R.id.dogrulamaanagecis
                Log.e("deneme","activity sonrası");
            }else
            {

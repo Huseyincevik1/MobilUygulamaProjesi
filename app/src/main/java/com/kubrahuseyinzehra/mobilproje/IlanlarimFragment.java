@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.kubrahuseyinzehra.mobilproje.Adapters.IlanlarimAdapter;
+import com.kubrahuseyinzehra.mobilproje.Models.HousingPojo;
 import com.kubrahuseyinzehra.mobilproje.Models.IlanlarItem;
 import com.kubrahuseyinzehra.mobilproje.Models.IlanlarimPojo;
 import com.kubrahuseyinzehra.mobilproje.RestApi.ApiUtils;
@@ -41,12 +42,12 @@ public class IlanlarimFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         recyclerView.setHasFixedSize(true);
         restApi = ApiUtils.getRestApiInterface();
-        ilanlarimgoruntule("2");
+        ilanlarimgoruntule();
         return tasarim;
     }
 
-    public void ilanlarimgoruntule(String uyeid){
-        restApi.ilanlarim("2").enqueue(new Callback<IlanlarimPojo>() {
+    public void ilanlarimgoruntule(){
+        restApi.ilanlarim(HousingPojo.getUye_id()).enqueue(new Callback<IlanlarimPojo>() {
             @Override
             public void onResponse(Call<IlanlarimPojo> call, Response<IlanlarimPojo> response) {
                 if(response.isSuccessful()){
