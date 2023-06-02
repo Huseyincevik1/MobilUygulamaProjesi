@@ -7,8 +7,6 @@
     tools:context=".ExtraHInfoFragment">
 
 
-
-
     <TextView
         android:id="@+id/textilanresimView"
         android:layout_width="267dp"
@@ -16,10 +14,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="43dp"
         android:layout_marginEnd="128dp"
+        android:layout_marginBottom="40dp"
         android:gravity="center"
         android:text="İlan resimlerini seçiniz"
         android:textColor="@color/black"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/resimsecbuuton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -29,6 +29,16 @@
         android:id="@+id/secilenresimImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
+        android:layout_marginStart="211dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="200dp"
+        android:layout_marginBottom="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.49"
         tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -36,17 +46,19 @@
         android:layout_width="237dp"
         android:layout_height="52dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="145dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="299dp"
         android:background="@drawable/button_background"
         android:text="Resimleri seçiniz"
         android:textColor="@color/white"
         android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/resimeklebutton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textilanresimView"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints,TextSizeCheck" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -54,71 +66,32 @@
         android:layout_width="237dp"
         android:layout_height="52dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="145dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/button_background"
         android:text="Resmi ekle"
         android:textColor="@color/white"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewilanbaslik"
+        app:layout_constraintBottom_toTopOf="@+id/buttonKyaydet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resimsecbuuton"
         tools:ignore="MissingConstraints,TextSizeCheck" />
 
-    <TextView
-        android:id="@+id/textViewilanaciklama"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="145dp"
-        android:text="İlan açıklama metnini giriniz"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/baslikinfo"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/editTextbulundugukatInfo"
-        android:layout_width="362dp"
-        android:layout_height="147dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="35dp"
-        android:background="@drawable/editext_background"
-        android:gravity="left"
-        android:hint="açıklama metni..."
-        android:inputType="text"
-        android:padding="10dp"
-        android:textColorHint="#757575"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewilanaciklama"
-        tools:ignore="MissingConstraints" />
-
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonhouseinfo"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="125dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="126dp"
+        android:id="@+id/buttonKyaydet"
+        android:layout_width="81dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="296dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="34dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/button_background"
-        android:text="Kaydet"
-        android:textColor="@color/white"
-        android:textSize="20dp"
+        android:background="@drawable/outline_save_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextbulundugukatInfo"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/resimeklebutton"
+        tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

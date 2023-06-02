@@ -81,8 +81,8 @@ public class HousingInfoFragment extends Fragment {
                     HousingPojo.setBaslik(baslik.getText().toString());
 
                     ilanKaydet();
-
-                    Navigation.findNavController(view).navigate(R.id.hiden_extraya);}
+                    Navigation.findNavController(view).navigate(R.id.hiden_extraya);
+                }
                 catch(Exception e) {Log.e("err","hata");
                     Toast.makeText(requireContext(),"Kayıt başarısız",Toast.LENGTH_LONG).show();
                 }
@@ -104,6 +104,9 @@ public class HousingInfoFragment extends Fragment {
 
                     ilan_id = response.body().getId();
 
+                }
+                else{
+                    Toast.makeText(requireContext(),"Kayıt başarısız",Toast.LENGTH_LONG).show();
                 }
             }
 
