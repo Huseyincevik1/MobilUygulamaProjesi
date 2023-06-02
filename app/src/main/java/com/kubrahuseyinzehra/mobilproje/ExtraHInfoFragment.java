@@ -44,7 +44,7 @@ import retrofit2.Response;
 public class ExtraHInfoFragment extends Fragment {
 
 
-    AppCompatButton resimsecbutton, resimeklebutton;
+    AppCompatButton resimsecbutton, resimeklebutton,buttonKyaydet;
     ImageView secilenresimImageView;
     String uye_id, resim;
     private RestApi restApi;
@@ -122,6 +122,7 @@ public class ExtraHInfoFragment extends Fragment {
     public void tanımla(View tasarim) {
         resimeklebutton = tasarim.findViewById(R.id.resimeklebutton);
         resimsecbutton = tasarim.findViewById(R.id.resimsecbuuton);
+        buttonKyaydet=tasarim.findViewById(R.id.buttonKyaydet);
         secilenresimImageView = tasarim.findViewById(R.id.secilenresimImageView);
 
 
@@ -149,6 +150,12 @@ public class ExtraHInfoFragment extends Fragment {
                     Toast.makeText(requireContext(), "Lütfen Resim Seçiniz", Toast.LENGTH_LONG).show();
                 }
 
+            }
+        });
+        buttonKyaydet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // GEÇİŞŞŞŞ
             }
         });
 

@@ -73,11 +73,17 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonKyaydet"
-        android:layout_width="150dp"
-        android:layout_height="69dp"
+        android:layout_width="81dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="296dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="34dp"
         android:layout_marginBottom="16dp"
-        android:text="Button"
-       
-        tools:ignore="MissingConstraints" />
+        android:background="@drawable/outline_save_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resimeklebutton"
+        tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
