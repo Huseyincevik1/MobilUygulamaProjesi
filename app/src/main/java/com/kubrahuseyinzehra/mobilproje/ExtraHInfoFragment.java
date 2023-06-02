@@ -44,7 +44,7 @@ import retrofit2.Response;
 public class ExtraHInfoFragment extends Fragment {
 
 
-    AppCompatButton resimsecbutton, resimeklebutton, kaydetbutton;
+    AppCompatButton resimsecbutton, resimeklebutton;
     ImageView secilenresimImageView;
     String uye_id, resim;
     private RestApi restApi;
@@ -61,22 +61,23 @@ public class ExtraHInfoFragment extends Fragment {
         progressDialog = new ProgressDialog(requireContext());
         return tasarim;
     }
-   /* public void ilanKaydet(){
-        restApi.ilanver(HousingPojo.getBaslik(),HousingPojo.getUye_id(),HousingPojo.getAciklama(),HousingPojo.getIl(),HousingPojo.getIlce(),HousingPojo.getMahalle(),HousingPojo.getIlan_durumu(),HousingPojo.getBrut_metrekare(),HousingPojo.getNet_metrekare(),HousingPojo.getBina_yasi(),HousingPojo.getBina_kat_sayisi(),HousingPojo.getOda_sayisi(),HousingPojo.getBulundugu_kat(),HousingPojo.getBanyo_sayisi(),HousingPojo.getIsitma_tipi(),HousingPojo.getSon_gun_tarihi(),HousingPojo.getKonut_sekli(),"esyasız",HousingPojo.getKullanim_durumu(),"Ön").enqueue(new Callback<IlanSonucPojo>() {
-            @Override
-            public void onResponse(Call<IlanSonucPojo> call, Response<IlanSonucPojo> response) {
-              if(response.body().isTf()){
-                  ilan_id = response.body().getId();
 
-              }
-            }
+    /* public void ilanKaydet(){
+         restApi.ilanver(HousingPojo.getBaslik(),HousingPojo.getUye_id(),HousingPojo.getAciklama(),HousingPojo.getIl(),HousingPojo.getIlce(),HousingPojo.getMahalle(),HousingPojo.getIlan_durumu(),HousingPojo.getBrut_metrekare(),HousingPojo.getNet_metrekare(),HousingPojo.getBina_yasi(),HousingPojo.getBina_kat_sayisi(),HousingPojo.getOda_sayisi(),HousingPojo.getBulundugu_kat(),HousingPojo.getBanyo_sayisi(),HousingPojo.getIsitma_tipi(),HousingPojo.getSon_gun_tarihi(),HousingPojo.getKonut_sekli(),"esyasız",HousingPojo.getKullanim_durumu(),"Ön").enqueue(new Callback<IlanSonucPojo>() {
+             @Override
+             public void onResponse(Call<IlanSonucPojo> call, Response<IlanSonucPojo> response) {
+               if(response.body().isTf()){
+                   ilan_id = response.body().getId();
 
-            @Override
-            public void onFailure(Call<IlanSonucPojo> call, Throwable t) {
+               }
+             }
 
-            }
-        });
-    }*/
+             @Override
+             public void onFailure(Call<IlanSonucPojo> call, Throwable t) {
+
+             }
+         });
+     }*/
     ActivityResultLauncher<String> resimcercevesisecme = registerForActivityResult(
             new ActivityResultContracts.GetContent(),
             new ActivityResultCallback<Uri>() {
@@ -84,7 +85,7 @@ public class ExtraHInfoFragment extends Fragment {
                 public void onActivityResult(Uri result) {
                     secilenresimImageView.setImageURI(result);
                     try {
-                        bitmap = MediaStore.Images.Media.getBitmap(requireContext().getContentResolver(),result);
+                        bitmap = MediaStore.Images.Media.getBitmap(requireContext().getContentResolver(), result);
                         secilenresimImageView.setVisibility(View.VISIBLE);
                         secilenresimImageView.setImageBitmap(bitmap);
                     } catch (IOException e) {
@@ -93,11 +94,11 @@ public class ExtraHInfoFragment extends Fragment {
                 }
 
             }
-            );
+    );
 
-    public void resimyukle(){
+    public void resimyukle() {
         resim = imageToString();
-        restApi.resimyukle(uye_id,HousingInfoFragment.ilan_id,resim).enqueue(new Callback<ResimEklePojo>() {
+        restApi.resimyukle(HousingPojo.getUye_id(), HousingInfoFragment.ilan_id, resim).enqueue(new Callback<ResimEklePojo>() {
             @Override
             public void onResponse(Call<ResimEklePojo> call, Response<ResimEklePojo> response) {
                 if (response.body() != null) {
@@ -107,6 +108,7 @@ public class ExtraHInfoFragment extends Fragment {
                         Toast.makeText(requireContext(), response.body().getSonuc(), Toast.LENGTH_LONG).show();
                     }
                 }
+
             }
 
             @Override
@@ -117,11 +119,11 @@ public class ExtraHInfoFragment extends Fragment {
     }
 
 
-    public void  tanımla(View tasarim){
+    public void tanımla(View tasarim) {
         resimeklebutton = tasarim.findViewById(R.id.resimeklebutton);
-        resimsecbutton =tasarim.findViewById(R.id.resimsecbuuton);
+        resimsecbutton = tasarim.findViewById(R.id.resimsecbuuton);
         secilenresimImageView = tasarim.findViewById(R.id.secilenresimImageView);
-        kaydetbutton = tasarim.findViewById(R.id.buttonhouseinfo);
+
 
         restApi = ApiUtils.getRestApiInterface();
         resimsecbutton.setOnClickListener(new View.OnClickListener() {
@@ -130,7 +132,7 @@ public class ExtraHInfoFragment extends Fragment {
 
                 resimcercevesisecme.launch("image/*");
 
-                Bitmap bitmap1= BitmapFactory.decodeResource(getResources(), secilenresimImageView.getId());
+                // Bitmap bitmap1 = BitmapFactory.decodeResource(getResources(), secilenresimImageView.getId());
 
 
             }
@@ -138,31 +140,34 @@ public class ExtraHInfoFragment extends Fragment {
         resimeklebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.e("v","yükleme öncesi");
-                if(HousingInfoFragment.ilan_id != null ){
-                    resimyukle();
+                Log.e("v", "yükleme öncesi");
+                if (imageToString() != "") {
+                    if (HousingInfoFragment.ilan_id != null) {
+                        resimyukle();
+                    }
+                } else {
+                    Toast.makeText(requireContext(), "Lütfen Resim Seçiniz", Toast.LENGTH_LONG).show();
                 }
 
-
             }
         });
 
-        kaydetbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
     }
 
-  public String imageToString()
-  {
+    public String imageToString() {
+        String text;
+
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
-        byte [] bytes = byteArrayOutputStream.toByteArray();
+        if(bitmap != null) {
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+            byte[] bytes = byteArrayOutputStream.toByteArray();
 
-      String text= Base64.encodeToString(bytes,Base64.DEFAULT);
+            text = Base64.encodeToString(bytes, Base64.DEFAULT);
+        }
+        else{
+            text="";
+        }
 
-      return text;
-  }
+        return text;
+    }
 }
