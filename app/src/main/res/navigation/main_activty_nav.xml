@@ -69,7 +69,11 @@
         android:id="@+id/extraHInfoFragment"
         android:name="com.kubrahuseyinzehra.mobilproje.ExtraHInfoFragment"
         android:label="fragment_extra_h_info"
-        tools:layout="@layout/fragment_extra_h_info" />
+        tools:layout="@layout/fragment_extra_h_info" >
+        <action
+            android:id="@+id/extradan_main"
+            app:destination="@id/anaSayfaFragment" />
+    </fragment>
     <fragment
         android:id="@+id/adresFragment"
         android:name="com.kubrahuseyinzehra.mobilproje.AdresFragment"

@@ -1,14 +1,10 @@
 package com.kubrahuseyinzehra.mobilproje;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -23,18 +19,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.kubrahuseyinzehra.mobilproje.Models.HousingPojo;
-import com.kubrahuseyinzehra.mobilproje.Models.IlanSonucPojo;
 import com.kubrahuseyinzehra.mobilproje.Models.ResimEklePojo;
 import com.kubrahuseyinzehra.mobilproje.RestApi.ApiUtils;
 import com.kubrahuseyinzehra.mobilproje.RestApi.RestApi;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -155,7 +148,9 @@ public class ExtraHInfoFragment extends Fragment {
         buttonKyaydet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // GEÇİŞŞŞŞ
+                ExtraHInfoFragmentDirections.ExtradanMain gecis = ExtraHInfoFragmentDirections.extradanMain(uye_id);
+                Navigation.findNavController(view).navigate(gecis);
+               //Navigation.findNavController(view).navigate(R.id.extradan_main);
             }
         });
 
