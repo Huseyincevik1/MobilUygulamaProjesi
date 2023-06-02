@@ -1,14 +1,25 @@
 package com.kubrahuseyinzehra.mobilproje;
 
+
+
+import android.annotation.SuppressLint;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -121,6 +132,7 @@ public class ExtraHInfoFragment extends Fragment {
 
         restApi = ApiUtils.getRestApiInterface();
         resimsecbutton.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("NotificationPermission")
             @Override
             public void onClick(View view) {
 
@@ -151,11 +163,63 @@ public class ExtraHInfoFragment extends Fragment {
                 ExtraHInfoFragmentDirections.ExtradanMain gecis = ExtraHInfoFragmentDirections.extradanMain(uye_id);
                 Navigation.findNavController(view).navigate(gecis);
                //Navigation.findNavController(view).navigate(R.id.extradan_main);
+                bildirimGoster();
             }
         });
 
     }
+    @SuppressLint("NotificationPermission")
+    private void bildirimGoster() {
 
+        NotificationCompat.Builder builder;
+
+        NotificationManager bildirimYoneticisi =
+                (NotificationManager) requireContext().getSystemService(Context.NOTIFICATION_SERVICE);
+
+        Intent ıntent = new Intent(requireContext(), AnaSayfaFragment.class);
+
+        PendingIntent gidilecekIntent = PendingIntent.getActivity(requireContext(), 1, ıntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+
+        String kanalId = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { // Oreo sürümü için bu kod çalışacak.
+
+            kanalId = "kanalId";
+            String kanalAd = "kanalAd";
+            String kanalTanım = "kanalTanım";
+            int kanalOnceligi = NotificationManager.IMPORTANCE_HIGH;
+
+            NotificationChannel kanal = bildirimYoneticisi.getNotificationChannel(kanalId);
+
+            if (kanal == null) {
+                kanal = new NotificationChannel(kanalId, kanalAd, kanalOnceligi);
+                kanal.setDescription(kanalTanım);
+                bildirimYoneticisi.createNotificationChannel(kanal);
+            }
+
+            builder = new NotificationCompat.Builder(requireContext(), kanalId);
+
+            builder.setContentTitle("Başlık")  // gerekli
+                    .setContentText("İçerik")  // gerekli
+                    .setSmallIcon(R.drawable.image) // gerekli
+                    .setAutoCancel(true)  // Bildirim tıklandıktan sonra kaybolur."
+                    .setContentIntent(gidilecekIntent);
+
+        } else { // OREO Sürümü haricinde bu kod çalışacak.
+
+            builder = new NotificationCompat.Builder(requireContext());
+
+            builder.setContentTitle("Başlık")  // gerekli
+                    .setContentText("İçerik")  // gerekli
+                    .setSmallIcon(R.drawable.image) // gerekli
+                    .setContentIntent(gidilecekIntent)
+                    .setAutoCancel(true)  // Bildirim tıklandıktan sonra kaybolur."
+                    .setPriority(Notification.PRIORITY_HIGH);
+        }
+
+        bildirimYoneticisi.notify(1, builder.build());
+
+    }
     public String imageToString() {
         String text;
 
